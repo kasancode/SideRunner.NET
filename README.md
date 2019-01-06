@@ -1,0 +1,101 @@
+# SideRunner.NET
+Work in progress.
+
+.SIDE file (Selenium IDE file) Runner for .NET
+
+# Implemented Commands
+- [x] open
+- [x] click
+- [x] clickAt
+- [ ] check
+- [ ] uncheck
+- [ ] debugger
+- [ ] doubleClick
+- [ ] doubleClickAt
+- [ ] dragAndDropToObject
+- [x] type
+- [x] sendKeys
+- [ ] echo
+- [x] run
+- [x] runScript
+- [ ] executeScript
+- [ ] executeAsyncScript
+- [ ] pause
+- [ ] verifyChecked
+- [ ] verifyNotChecked
+- [ ] verifyEditable
+- [ ] verifyNotEditable
+- [ ] verifyElementPresent
+- [ ] verifyElementNotPresent
+- [ ] verifySelectedValue
+- [ ] verifyNotSelectedValue
+- [ ] verifyValue
+- [ ] verifyText
+- [ ] verifyTitle
+- [ ] verifyNotText
+- [ ] verifySelectedLabel
+- [ ] assertChecked
+- [ ] assertNotChecked
+- [ ] assertEditable
+- [ ] assertNotEditable
+- [ ] assertElementPresent
+- [ ] assertElementNotPresent
+- [ ] assertSelectedValue
+- [ ] assertNotSelectedValue
+- [ ] assertValue
+- [ ] assertText
+- [ ] assertTitle
+- [ ] assertSelectedLabel
+- [ ] store
+- [ ] storeText
+- [ ] storeValue
+- [ ] storeTitle
+- [ ] storeWindowHandle
+- [ ] storeXpathCount
+- [ ] storeAttribute
+- [ ] select
+- [ ] addSelection
+- [ ] removeSelection
+- [ ] selectFrame
+- [ ] selectWindow
+- [ ] close
+- [ ] mouseDown
+- [ ] mouseDownAt
+- [ ] mouseUp
+- [ ] mouseUpAt
+- [ ] mouseMove
+- [ ] mouseMoveAt
+- [ ] mouseOver
+- [ ] mouseOut
+- [ ] assertAlert
+- [ ] assertNotText
+- [ ] assertPrompt
+- [ ] assertConfirmation
+- [ ] webdriverAnswerOnVisiblePrompt
+- [ ] webdriverChooseOkOnVisibleConfirmation
+- [ ] webdriverChooseCancelOnVisibleConfirmation
+- [ ] webdriverChooseCancelOnVisiblePrompt
+- [ ] editContent
+- [ ] submit
+- [ ] answerOnNextPrompt
+- [ ] chooseCancelOnNextConfirmation
+- [ ] chooseCancelOnNextPrompt
+- [ ] chooseOkOnNextConfirmation
+- [ ] setSpeed
+- [x] setWindowSize
+- [ ] do
+- [ ] else
+- [ ] elseIf
+- [ ] end
+- [ ] if
+- [ ] repeatIf
+- [ ] times
+- [ ] while
+- [ ] assert
+- [ ] verify
+- [ ] waitForElementPresent
+- [ ] waitForElementNotPresent
+- [ ] waitForElementVisible
+- [ ] waitForElementNotVisible
+- [ ] waitForElementEditable
+- [ ] waitForElementNotEditable
