@@ -1,0 +1,93 @@
+{
+  "id": "78796583-6ab9-445c-a128-aa77be38d227",
+  "version": "2.0",
+  "name": "double-click",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "2fecac79-0db9-47f4-9ad0-ec77974401bf",
+    "name": "double-click",
+    "commands": [{
+      "id": "325c5a74-5bbd-4847-9dea-ab3ba611f9ab",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1fe8c57b-61c2-4aee-949e-4f15557c2d8d",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=sp0",
+      "targets": [
+        ["id=sp0", "id"],
+        ["css=#sp0", "css:finder"],
+        ["css=#sp0", "css"],
+        ["xpath=//span[@id='sp0']", "xpath:attributes"],
+        ["xpath=//span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc2c2f1e-005b-4a11-a421-2c4977f75979",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=sp2",
+      "targets": [
+        ["id=sp2", "id"],
+        ["css=#sp2", "css:finder"],
+        ["css=#sp2", "css"],
+        ["xpath=//span[@id='sp2']", "xpath:attributes"],
+        ["xpath=//span[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "712798b2-bea2-4d3c-bec5-18b53100e5b6",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=sp4",
+      "targets": [
+        ["id=sp4", "id"],
+        ["css=#sp4", "css:finder"],
+        ["css=#sp4", "css"],
+        ["xpath=//span[@id='sp4']", "xpath:attributes"],
+        ["xpath=//span[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "67b4415d-67c5-4d03-bcb7-f090d1a7ee4f",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=sp6",
+      "targets": [
+        ["id=sp6", "id"],
+        ["css=#sp6", "css:finder"],
+        ["css=#sp6", "css"],
+        ["xpath=//span[@id='sp6']", "xpath:attributes"],
+        ["xpath=//span[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "39dcfab1-b8ea-45e4-b409-366f7e5162b4",
+      "comment": "",
+      "command": "doubleClick",
+      "target": "id=sp8",
+      "targets": [
+        ["id=sp8", "id"],
+        ["css=#sp8", "css:finder"],
+        ["css=#sp8", "css"],
+        ["xpath=//span[@id='sp8']", "xpath:attributes"],
+        ["xpath=//span[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "47dbaf9b-9176-4d29-93fe-d5a4037c8e54",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["2fecac79-0db9-47f4-9ad0-ec77974401bf"]
+  }],
+  "urls": ["http://localhost/"],
+  "plugins": []
+}

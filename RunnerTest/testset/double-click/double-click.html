@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <span id="sp0" ondblclick="set(0)">text0 </span>
+        <span id="sp1" ondblclick="set(1)">text1 </span>
+        <span id="sp2" ondblclick="set(2)">text2 </span>
+        <span id="sp3" ondblclick="set(3)">text3 </span>
+        <span id="sp4" ondblclick="set(4)">text4 </span>
+        <span id="sp5" ondblclick="set(5)">text5 </span>
+        <span id="sp6" ondblclick="set(6)">text6 </span>
+        <span id="sp7" ondblclick="set(7)">text7 </span>
+        <span id="sp8" ondblclick="set(8)">text8 </span>
+        <span id="sp9" ondblclick="set(9)">text9 </span>
+    </div>
+    <div>
+        <button id="validate" onclick="validate()">validate</button>
+    </div>
+    <div>
+        <span id="result"></span>
+    </div>
+    <script>
+        var next = 0;
+
+        function set(num) {
+            if (next === num) {
+                next += 2;
+            }
+            else {
+                next = 0;
+            }
+        }
+
+        function validate() {
+            document.getElementById("result").innerHTML = next === 10 ? "OK" : "NA";
+        }
+    </script>
+</body>
+</html>

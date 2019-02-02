@@ -7,11 +7,11 @@ Work in progress.
 - [x] open
 - [x] click
 - [x] clickAt
-- [ ] check
-- [ ] uncheck
+- [x] check
+- [x] uncheck
 - [ ] debugger
-- [ ] doubleClick
-- [ ] doubleClickAt
+- [x] doubleClick
+- [x] doubleClickAt
 - [ ] dragAndDropToObject
 - [x] type
 - [x] sendKeys

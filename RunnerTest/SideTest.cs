@@ -72,8 +72,6 @@ namespace Tests
             }
         }
 
-
-
         [Test]
         public void CheckUncheck()
         {
@@ -84,6 +82,12 @@ namespace Tests
         public void Click()
         {
             this.Run(this.dir, "click");
+        }
+
+        [Test]
+        public void DoubleClick()
+        {
+            this.Run(this.dir, "double-click");
         }
 
         [Test]
