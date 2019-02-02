@@ -104,7 +104,7 @@ namespace Tests
             var options = new ChromeOptions();
             options.AddArgument("--headless");
 
-            using (var driver = new ChromeDriver(TestContext.CurrentContext.TestDirectory, options))
+            using (var driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, options))
             {
                 var sider = new SideRunner(driver, File.ReadAllText(sidePath, System.Text.Encoding.UTF8));
                 var task = this.StartHttpServer(htmlPath);
