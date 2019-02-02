@@ -1,10 +1,15 @@
 language: csharp
 solution: Sider.sln
+mono: none
 dotnet: 2.1.502
 addons:
   chrome: stable
 install:
   - dotnet restore
 script:
+  - dotnet build
+  - wget http://chromedriver.storage.googleapis.com/72.0.3626.7/chromedriver_linux64.zip
+  - unzip chromedriver_linux64.zip
+  - cp chromedriver RunnerTest/bin/Debug/netcoreapp2.1/
   - dotnet test
 
