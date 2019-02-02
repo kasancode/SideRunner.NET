@@ -1,5 +1,4 @@
-# SideRunner.NET
-Work in progress.
+# SideRunner.NET [![Build Status](https://travis-ci.com/kasancode/SideRunner.NET.svg?branch=master)](https://travis-ci.com/kasancode/SideRunner.NET)
 
 .SIDE file (Selenium IDE file) Runner for .NET
 
