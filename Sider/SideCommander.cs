@@ -22,23 +22,25 @@ namespace Sider
 
         public TimeSpan ImplicitWait { get; set; } = TimeSpan.FromSeconds(10);
 
+        public Project Project { get => this.project; set => this.project = value; }
+
         public SideRunner(IWebDriver driver, Project project)
         {
             this.driver = driver ?? throw new ArgumentNullException();
-            this.project = project ?? throw new ArgumentNullException();
+            this.Project = project ?? throw new ArgumentNullException();
         }
 
         public SideRunner(IWebDriver driver, string json)
         {
             this.driver = driver ?? throw new ArgumentNullException();
-            this.project = JsonConvert.DeserializeObject<Project>(json);
+            this.Project = JsonConvert.DeserializeObject<Project>(json);
 
             var cmd = new OpenQA.Selenium.Remote.Command("","");
         }
 
         public void ExecuteTest(string testName)
         {
-            var test = this.project.Tests.First(t => t.Name == testName);
+            var test = this.Project?.Tests?.First(t => t.Name == testName) ?? throw new InvalidOperationException();
             this.ExecuteTest(test);
         }
 
@@ -577,7 +579,7 @@ namespace Sider
             var key = command.Value;
             if (this.keyMap.Keys.Contains(key))
                 key = this.keyMap[key];
-            elem?.SendKeys(key);
+            elem.SendKeys(key);
         }
 
         private void emitType(Command command)
@@ -585,8 +587,8 @@ namespace Sider
             // https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L311
 
             var elem = this.selectElement(command.Target);
-            elem?.Clear();
-            elem?.SendKeys(command.Value);
+            elem.Clear();
+            elem.SendKeys(command.Value);
         }
 
         /// <summary>
@@ -620,39 +622,73 @@ namespace Sider
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L349
+        /// </summary>
+        /// <param name="command"></param>
         private void emitUncheck(Command command)
         {
-            throw new NotImplementedException();
+            this.emitCheckTest(command, elem => elem.GetAttribute("checked")?.ToLower() == "true");
         }
 
+        /// <summary>
+        /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L339
+        /// </summary>
+        /// <param name="command"></param>
         private void emitCheck(Command command)
         {
-            throw new NotImplementedException();
+            this.emitCheckTest(command, elem => elem.GetAttribute("checked")?.ToLower() != "true");
         }
 
+        private void emitCheckTest(Command command, Func<IWebElement,bool> test)
+        {
+            var elem = this.selectElement(command.Target);
+
+            if (elem.TagName.ToLower() == "input" &&
+                elem.GetAttribute("type").ToLower() == "checkbox")
+            {
+                var c = elem.GetAttribute("checked");
+                if (test(elem))
+                {
+                    elem.Click();
+                }
+            }
+            else
+            {
+                throw new InvalidOperationException();
+            }
+        }
+
+        /// <summary>
+        /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L273
+        /// </summary>
+        /// <param name="command"></param>
         private void emitClick(Command command)
         {
-            // https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L273
-
             var elem = this.selectElement(command.Target);
-            elem?.Click();
+            elem.Click();
         }
 
+        /// <summary>
+        /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L266
+        /// </summary>
+        /// <param name="command"></param>
         private void emitOpen(Command command)
         {
-            // https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L266
-
             var url = command.Target;
             if (!Regex.IsMatch(url, @"^(file|http|https):\/\/"))
-                url = project.Url + command.Target;
+                url = Project.Url + command.Target;
             driver.Navigate().GoToUrl(url);
 
         }
 
+        /// <summary>
+        /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/location.js
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
         protected IWebElement selectElement(string target)
         {
-            // https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/location.js
-
             var targets = target.Split('=');
             switch (targets[0])
             {
