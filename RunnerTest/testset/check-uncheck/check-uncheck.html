@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <input type="checkbox" id="ch0" checked />
+        <input type="checkbox" id="ch1" />
+        <input type="checkbox" id="ch2" />
+        <input type="checkbox" id="ch3" checked/>
+        <input type="checkbox" id="ch4" checked/>
+        <input type="checkbox" id="ch5" />
+        <input type="checkbox" id="ch6" checked/>
+        <input type="checkbox" id="ch7" />
+        <input type="checkbox" id="ch8" checked/>
+        <input type="checkbox" id="ch9" checked/>
+    </div>
+    <div>
+        <button id="validate" onclick="validate()">validate</button>
+    </div>
+    <div>
+        <span id="result"></span>
+        </div>
+    <script>
+        function validate() {
+            var flag = true;
+            for (var i = 0; i < 10; i++) {
+                var elem = document.getElementById("ch" + i);
+
+                flag = flag && (i%2 === 0 ? elem.checked : !elem.checked)
+            }
+
+            document.getElementById("result").innerHTML = flag ? "OK" : "NA";
+
+        }
+    </script>
+</body>
+</html>

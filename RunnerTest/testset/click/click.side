@@ -1,0 +1,93 @@
+{
+  "id": "dd80924b-336b-44f6-95be-4a588c2dab9a",
+  "version": "2.0",
+  "name": "click",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "d1122517-13fe-4182-a16d-6b5e5cc5afd6",
+    "name": "click",
+    "commands": [{
+      "id": "ad928b3f-641a-4183-91d2-48f7d7744db5",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6def8836-6f0e-4c71-8738-32c2e2478b76",
+      "comment": "",
+      "command": "click",
+      "target": "id=bt0",
+      "targets": [
+        ["id=bt0", "id"],
+        ["css=#bt0", "css:finder"],
+        ["css=#bt0", "css"],
+        ["xpath=//button[@id='bt0']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f0ebe1f-b1c8-4070-89f1-90ade8e08941",
+      "comment": "",
+      "command": "click",
+      "target": "id=bt2",
+      "targets": [
+        ["id=bt2", "id"],
+        ["css=#bt2", "css:finder"],
+        ["css=#bt2", "css"],
+        ["xpath=//button[@id='bt2']", "xpath:attributes"],
+        ["xpath=//button[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa7856a2-691d-4d93-9d6c-d0edfb0ec820",
+      "comment": "",
+      "command": "click",
+      "target": "id=bt4",
+      "targets": [
+        ["id=bt4", "id"],
+        ["css=#bt4", "css:finder"],
+        ["css=#bt4", "css"],
+        ["xpath=//button[@id='bt4']", "xpath:attributes"],
+        ["xpath=//button[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "68b35516-642c-475c-9944-52ec2c744d24",
+      "comment": "",
+      "command": "click",
+      "target": "id=bt6",
+      "targets": [
+        ["id=bt6", "id"],
+        ["css=#bt6", "css:finder"],
+        ["css=#bt6", "css"],
+        ["xpath=//button[@id='bt6']", "xpath:attributes"],
+        ["xpath=//button[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3983916-4a40-449c-ba19-6cf9822a6240",
+      "comment": "",
+      "command": "click",
+      "target": "id=bt8",
+      "targets": [
+        ["id=bt8", "id"],
+        ["css=#bt8", "css:finder"],
+        ["css=#bt8", "css"],
+        ["xpath=//button[@id='bt8']", "xpath:attributes"],
+        ["xpath=//button[9]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "60838079-2408-471a-b88e-3e4ac744cb07",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["d1122517-13fe-4182-a16d-6b5e5cc5afd6"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

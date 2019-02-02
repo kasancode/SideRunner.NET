@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <button id="bt0" onclick="set(0)">button0</button>
+        <button id="bt1" onclick="set(1)">button1</button>
+        <button id="bt2" onclick="set(2)">button2</button>
+        <button id="bt3" onclick="set(3)">button3</button>
+        <button id="bt4" onclick="set(4)">button4</button>
+        <button id="bt5" onclick="set(5)">button5</button>
+        <button id="bt6" onclick="set(6)">button6</button>
+        <button id="bt7" onclick="set(7)">button7</button>
+        <button id="bt8" onclick="set(8)">button8</button>
+        <button id="bt9" onclick="set(9)">button9</button>
+    </div>
+    <div>
+        <button id="validate" onclick="validate()">validate</button>
+    </div>
+    <div>
+        <span id="result"></span>
+    </div>
+    <script>
+        var next = 0;
+
+        function set(num) {
+            if (next === num) {
+                next += 2;
+            }
+            else {
+                next = 0;
+            }
+        }
+
+        function validate() {
+            document.getElementById("result").innerHTML = next === 10 ? "OK" : "NA";
+        }
+    </script>
+</body>
+</html>

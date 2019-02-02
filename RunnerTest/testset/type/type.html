@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <input type="text" id="txt0" value="" />
+        <input type="text" id="txt1" value="" />
+        <input type="text" id="txt2" value="" />
+    </div>
+    <div>
+        <button id="validate" onclick="validate()">validate</button>
+    </div>
+    <div>
+        <span id="result"></span>
+    </div>
+    <script>
+        function validate() {
+            var flag = true;
+            flag = flag && document.getElementById("txt0").value === "Test";
+            flag = flag && document.getElementById("txt1").value === "1234";
+            flag = flag && document.getElementById("txt2").value === "!#$%";
+            document.getElementById("result").innerHTML = flag ? "OK" : "NA";
+        }
+    </script>
+</body>
+</html>

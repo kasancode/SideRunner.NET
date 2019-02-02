@@ -4,11 +4,18 @@ using OpenQA.Selenium.Chrome;
 using Sider;
 using System;
 
+using System.Net;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace Tests
 {
     public class Tests
     {
         string basePath = "";
+        string dir = "testset";
+        HttpListener listener = null;
+        bool listening = false;
 
         [SetUp]
         public void Setup()
@@ -18,44 +25,93 @@ namespace Tests
             for (var i = 0; i < 3; i++)
                 this.basePath = Path.GetDirectoryName(this.basePath);
 
-            this.basePath = Path.Join(this.basePath, "examples");
+            this.basePath = Path.Join(this.basePath, this.dir);
 
         }
 
-        [Test]
-        public void SendKeys()
+        [TearDown]
+        public void CloseListener()
         {
-            var dir = Path.Join(this.basePath, "send-keys.side");
-
-            Assert.Throws<SeleniumAssertionException>(() =>
+            if (this.listening)
             {
-                Run(dir, "send keys");
-            });
+                this.listening = false;
+                this.listener?.Close();
+                this.listener = null;
+            }
         }
 
-        [Test]
-        public void SendKeysJa()
+        public async Task StartHttpServer(string filePath)
         {
-            var dir = Path.Join(this.basePath, "send-keys-ja.side");
+            this.CloseListener();
 
-            Run(dir, "send keys");
-        }
+            this.listener = new HttpListener();
 
-        [Test]
-        public void SelectWindow()
-        {
-            var dir = Path.Join(this.basePath, "select-window.side");
+            this.listening = true;
+            this.listener.Prefixes.Add("http://localhost:8080/");
 
-            Run(dir, "select window");
-        }
+            this.listener.Start();
 
-
-        public void Run(string filePath, string testName)
-        {
-            using (var driver = new ChromeDriver(TestContext.CurrentContext.TestDirectory))
+            while (this.listening)
             {
-                var sider = new SideRunner(driver, File.ReadAllText(filePath, System.Text.Encoding.UTF8));
+                var context = await this.listener.GetContextAsync();
+                var request = context.Request;
+
+                var response = context.Response;
+                response.ContentType = "text/html";
+                response.StatusCode = (int)HttpStatusCode.OK;
+
+                var buffer = File.ReadAllBytes(filePath);
+
+                response.ContentLength64 = buffer.Length;
+
+                using (var output = response.OutputStream)
+                {
+                    await output.WriteAsync(buffer, 0, buffer.Length);
+                }
+                response.Close();
+            }
+        }
+
+
+
+        [Test]
+        public void CheckUncheck()
+        {
+            this.Run(this.dir, "check-uncheck");
+        }
+
+        [Test]
+        public void Click()
+        {
+            this.Run(this.dir, "click");
+        }
+
+        [Test]
+        public void Type()
+        {
+            this.Run(this.dir, "type");
+        }
+
+        public void Run(string basePath, string testName)
+        {
+            var sidePath = Path.Join(this.basePath, testName + Path.DirectorySeparatorChar + testName + ".side");
+            var htmlPath = Path.Join(this.basePath, testName + Path.DirectorySeparatorChar + testName + ".html");
+
+            var options = new ChromeOptions();
+            options.AddArgument("--headless");
+
+            using (var driver = new ChromeDriver(TestContext.CurrentContext.TestDirectory, options))
+            {
+                var sider = new SideRunner(driver, File.ReadAllText(sidePath, System.Text.Encoding.UTF8));
+                var task = this.StartHttpServer(htmlPath);
+
                 sider.ExecuteTest(testName);
+
+                driver.FindElementById("validate").Click();
+                var result = driver.FindElementById("result").Text;
+                Assert.AreEqual("OK", result);
+
+                this.CloseListener();
             }
         }
     }
