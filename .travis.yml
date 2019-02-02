@@ -7,4 +7,3 @@ script:
   - dotnet test
 addons:
   chrome: stable
-  
