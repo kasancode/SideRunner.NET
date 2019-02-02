@@ -1,9 +1,10 @@
 language: csharp
 solution: Sider.sln
 dotnet: 2.1.502
+addons:
+  chrome: stable
 install:
   - dotnet restore
 script:
   - dotnet test
-addons:
-  chrome: stable
+

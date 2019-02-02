@@ -7,6 +7,7 @@ using System;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Tests
 {
@@ -104,7 +105,7 @@ namespace Tests
             var options = new ChromeOptions();
             options.AddArgument("--headless");
 
-            using (var driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, options))
+            using (var driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), options))
             {
                 var sider = new SideRunner(driver, File.ReadAllText(sidePath, System.Text.Encoding.UTF8));
                 var task = this.StartHttpServer(htmlPath);
