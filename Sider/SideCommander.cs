@@ -34,8 +34,6 @@ namespace Sider
         {
             this.driver = driver ?? throw new ArgumentNullException();
             this.Project = JsonConvert.DeserializeObject<Project>(json);
-
-            var cmd = new OpenQA.Selenium.Remote.Command("","");
         }
 
         public void ExecuteTest(string testName)
@@ -146,7 +144,7 @@ namespace Sider
             {"${KEY_F12}", Keys.F12},
         };
 
-        public void ExecuteCommand(Command command)
+        public void ExecuteCommand(Models.Command command)
         {
             // https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js
             // ^\s*([^:]+):\s*([^,]+),
@@ -255,213 +253,213 @@ namespace Sider
             }
         }
 
-        private void emitWaitForElementNotEditable(Command command)
+        private void emitWaitForElementNotEditable(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitWaitForElementEditable(Command command)
+        private void emitWaitForElementEditable(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitWaitForElementNotVisible(Command command)
+        private void emitWaitForElementNotVisible(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitWaitForElementVisible(Command command)
+        private void emitWaitForElementVisible(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitWaitForElementNotPresent(Command command)
+        private void emitWaitForElementNotPresent(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitWaitForElementPresent(Command command)
+        private void emitWaitForElementPresent(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitAssert(Command command)
+        private void emitAssert(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitControlFlowWhile(Command command)
+        private void emitControlFlowWhile(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitControlFlowTimes(Command command)
+        private void emitControlFlowTimes(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitControlFlowRepeatIf(Command command)
+        private void emitControlFlowRepeatIf(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitControlFlowIf(Command command)
+        private void emitControlFlowIf(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitControlFlowEnd(Command command)
+        private void emitControlFlowEnd(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitControlFlowElseIf(Command command)
+        private void emitControlFlowElseIf(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitControlFlowElse(Command command)
+        private void emitControlFlowElse(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitControlFlowDo(Command command)
+        private void emitControlFlowDo(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitSetWindowSize(Command command)
+        private void emitSetWindowSize(Models.Command command)
         {
             var sizeStrings = command.Target.Split('x');
             this.driver.Manage().Window.Size = new Size(int.Parse(sizeStrings[0]), int.Parse(sizeStrings[1]));
         }
 
-        private void emitSetSpeed(Command command)
+        private void emitSetSpeed(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void skip(Command command)
+        private void skip(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitSubmit(Command command)
+        private void emitSubmit(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitEditContent(Command command)
+        private void emitEditContent(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitChooseCancelOnNextConfirmation(Command command)
+        private void emitChooseCancelOnNextConfirmation(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitChooseOkOnNextConfirmation(Command command)
+        private void emitChooseOkOnNextConfirmation(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitAnswerOnNextPrompt(Command command)
+        private void emitAnswerOnNextPrompt(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitAssertAlert(Command command)
+        private void emitAssertAlert(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitAssertAlertAndAccept(Command command)
+        private void emitAssertAlertAndAccept(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitMouseOut(Command command)
+        private void emitMouseOut(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitMouseMove(Command command)
+        private void emitMouseMove(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitMouseUp(Command command)
+        private void emitMouseUp(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitMouseDown(Command command)
+        private void emitMouseDown(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitClose(Command command)
+        private void emitClose(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitSelectWindow(Command command)
+        private void emitSelectWindow(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitSelectFrame(Command command)
+        private void emitSelectFrame(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitSelect(Command command)
+        private void emitSelect(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitStoreAttribute(Command command)
+        private void emitStoreAttribute(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitStoreXpathCount(Command command)
+        private void emitStoreXpathCount(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitStoreWindowHandle(Command command)
+        private void emitStoreWindowHandle(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitStoreTitle(Command command)
+        private void emitStoreTitle(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitStoreValue(Command command)
+        private void emitStoreValue(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitStoreText(Command command)
+        private void emitStoreText(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitStore(Command command)
+        private void emitStore(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifySelectedLabel(Command command)
+        private void emitVerifySelectedLabel(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyNotText(Command command)
+        private void emitVerifyNotText(Models.Command command)
         {
             throw new NotImplementedException();
         }
@@ -470,58 +468,58 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L514
         /// </summary>
         /// <param name="command"></param>
-        private void emitVerifyTitle(Command command)
+        private void emitVerifyTitle(Models.Command command)
         {
             var title = driver.Title;
             SeleniumAssert.AreSame(command.Target, title);
         }
 
-        private void emitVerifyText(Command command)
+        private void emitVerifyText(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyValue(Command command)
+        private void emitVerifyValue(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyNotSelectedValue(Command command)
+        private void emitVerifyNotSelectedValue(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifySelectedValue(Command command)
+        private void emitVerifySelectedValue(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyElementNotPresent(Command command)
+        private void emitVerifyElementNotPresent(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyElementPresent(Command command)
+        private void emitVerifyElementPresent(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyNotEditable(Command command)
+        private void emitVerifyNotEditable(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyEditable(Command command)
+        private void emitVerifyEditable(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyNotChecked(Command command)
+        private void emitVerifyNotChecked(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitVerifyChecked(Command command)
+        private void emitVerifyChecked(Models.Command command)
         {
             throw new NotImplementedException();
         }
@@ -530,17 +528,17 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L392
         /// </summary>
         /// <param name="command"></param>
-        private void emitPause(Command command)
+        private void emitPause(Models.Command command)
         {
             Thread.Sleep(int.Parse(command.Target) * 1000);
         }
 
-        private void emitExecuteAsyncScript(Command command)
+        private void emitExecuteAsyncScript(Models.Command command)
         {
             throw new NotImplementedException();
         }
 
-        private void emitExecuteScript(Command command)
+        private void emitExecuteScript(Models.Command command)
         {
             throw new NotImplementedException();
         }
@@ -549,7 +547,7 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L365
         /// </summary>
         /// <param name="command"></param>
-        private void emitRunScript(Command command)
+        private void emitRunScript(Models.Command command)
         {
             driver.ExecuteJavaScript(command.Target);
         }
@@ -558,12 +556,12 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L359
         /// </summary>
         /// <param name="command"></param>
-        private void emitRun(Command command)
+        private void emitRun(Models.Command command)
         {
             this.ExecuteTest(command.Target);
         }
 
-        private void emitEcho(Command command)
+        private void emitEcho(Models.Command command)
         {
             // https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L335
             
@@ -571,7 +569,7 @@ namespace Sider
             // ?
         }
 
-        private void emitSendKeys(Command command)
+        private void emitSendKeys(Models.Command command)
         {
             // https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L321
 
@@ -582,7 +580,7 @@ namespace Sider
             elem.SendKeys(key);
         }
 
-        private void emitType(Command command)
+        private void emitType(Models.Command command)
         {
             // https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L311
 
@@ -596,7 +594,7 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium/blob/master/dotnet/src/webdriverbackedselenium/Internal/SeleniumEmulation/DragAndDrop.cs#L49
         /// </summary>
         /// <param name="command"></param>
-        private void emitDragAndDrop(Command command)
+        private void emitDragAndDrop(Models.Command command)
         {
             var dropSource = this.selectElement(command.Target);
             var dropTarget = this.selectElement(command.Value);
@@ -609,7 +607,7 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L287
         /// </summary>
         /// <param name="command"></param>
-        private void emitDoubleClick(Command command)
+        private void emitDoubleClick(Models.Command command)
         {
             var elem = this.selectElement(command.Target);
  
@@ -617,7 +615,7 @@ namespace Sider
             action.DoubleClick(elem)?.Perform();
         }
 
-        private void emitDebugger(Command command)
+        private void emitDebugger(Models.Command command)
         {
             throw new NotImplementedException();
         }
@@ -626,7 +624,7 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L349
         /// </summary>
         /// <param name="command"></param>
-        private void emitUncheck(Command command)
+        private void emitUncheck(Models.Command command)
         {
             this.emitCheckTest(command, elem => elem.GetAttribute("checked")?.ToLower() == "true");
         }
@@ -635,12 +633,12 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L339
         /// </summary>
         /// <param name="command"></param>
-        private void emitCheck(Command command)
+        private void emitCheck(Models.Command command)
         {
             this.emitCheckTest(command, elem => elem.GetAttribute("checked")?.ToLower() != "true");
         }
 
-        private void emitCheckTest(Command command, Func<IWebElement,bool> test)
+        private void emitCheckTest(Models.Command command, Func<IWebElement,bool> test)
         {
             var elem = this.selectElement(command.Target);
 
@@ -663,7 +661,7 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L273
         /// </summary>
         /// <param name="command"></param>
-        private void emitClick(Command command)
+        private void emitClick(Models.Command command)
         {
             var elem = this.selectElement(command.Target);
             elem.Click();
@@ -673,7 +671,7 @@ namespace Sider
         /// https://github.com/SeleniumHQ/selenium-ide/blob/master/packages/selianize/src/command.js#L266
         /// </summary>
         /// <param name="command"></param>
-        private void emitOpen(Command command)
+        private void emitOpen(Models.Command command)
         {
             var url = command.Target;
             if (!Regex.IsMatch(url, @"^(file|http|https):\/\/"))

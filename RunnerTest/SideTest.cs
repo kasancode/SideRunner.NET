@@ -7,6 +7,7 @@ using System;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium;
 
 namespace Tests
 {
@@ -75,28 +76,28 @@ namespace Tests
         [Test]
         public void CheckUncheck()
         {
-            this.Run(this.dir, "check-uncheck");
+            this.Run("check-uncheck");
         }
 
         [Test]
         public void Click()
         {
-            this.Run(this.dir, "click");
+            this.Run( "click");
         }
 
         [Test]
         public void DoubleClick()
         {
-            this.Run(this.dir, "double-click");
+            this.Run("double-click");
         }
 
         [Test]
         public void Type()
         {
-            this.Run(this.dir, "type");
+            this.Run( "type");
         }
 
-        public void Run(string basePath, string testName)
+        public void Run(string testName)
         {
             var sidePath = Path.Join(this.basePath, testName + Path.DirectorySeparatorChar + testName + ".side");
             var htmlPath = Path.Join(this.basePath, testName + Path.DirectorySeparatorChar + testName + ".html");
@@ -111,10 +112,12 @@ namespace Tests
 
                 sider.ExecuteTest(testName);
 
-                driver.FindElementById("validate").Click();
-                var result = driver.FindElementById("result").Text;
+                driver.FindElement(By.Id("validate")).Click();
+                var result = driver.FindElement(By.Id("result")).Text;
                 Assert.AreEqual("OK", result);
 
+                var image = driver.GetScreenshot();
+                image.SaveAsFile("screenshot.png");
                 this.CloseListener();
             }
         }
