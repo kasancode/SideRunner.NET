@@ -1,13 +1,11 @@
 using NUnit.Framework;
-using System.IO;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Sider;
 using System;
-
+using System.IO;
 using System.Net;
-using System.Text;
 using System.Threading.Tasks;
-using OpenQA.Selenium;
 
 namespace Tests
 {
@@ -82,7 +80,7 @@ namespace Tests
         [Test]
         public void Click()
         {
-            this.Run( "click");
+            this.Run("click");
         }
 
         [Test]
@@ -94,7 +92,7 @@ namespace Tests
         [Test]
         public void Type()
         {
-            this.Run( "type");
+            this.Run("type");
         }
 
         public void Run(string testName)
