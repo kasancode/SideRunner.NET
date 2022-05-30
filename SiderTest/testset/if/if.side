@@ -1,0 +1,134 @@
+{
+  "id": "1cad9492-6f63-40dd-acc4-df0140568c44",
+  "version": "2.0",
+  "name": "if",
+  "url": "http://localhost:8080/",
+  "tests": [{
+    "id": "f73e3fd4-99d6-4630-81a4-6e3df612a196",
+    "name": "if",
+    "commands": [
+        {
+            "id": "ad928b3f-641a-4183-91d2-48f7d7744db5",
+            "comment": "",
+            "command": "open",
+            "target": "/",
+            "targets": [],
+            "value": ""
+        },
+        {
+            "id": "e044a139-882c-4c54-bca6-748e38880b21",
+            "comment": "",
+            "command": "if",
+            "target": "true",
+            "targets": [],
+            "value": ""
+        },
+        {
+            "id": "7973ef18-aaf9-466c-acab-7721664a12da",
+            "comment": "",
+            "command": "click",
+            "target": "id=bt0",
+            "targets": [
+                [ "id=bt0", "id" ],
+                [ "css=#bt0", "css:finder" ],
+                [ "xpath=//button[@id='bt0']", "xpath:attributes" ],
+                [ "xpath=//button", "xpath:position" ],
+                [ "xpath=//button[contains(.,'button0')]", "xpath:innerText" ]
+            ],
+            "value": ""
+        },
+        {
+            "id": "a7c30281-d193-4aad-a15b-df918df26b9a",
+            "comment": "",
+            "command": "else",
+            "target": "",
+            "targets": [],
+            "value": ""
+        },
+        {
+            "id": "f1a8a657-5f43-459b-bd61-b483d0d01c84",
+            "comment": "",
+            "command": "click",
+            "target": "id=bt1",
+            "targets": [
+                [ "id=bt1", "id" ],
+                [ "css=#bt1", "css:finder" ],
+                [ "xpath=//button[@id='bt1']", "xpath:attributes" ],
+                [ "xpath=//button[2]", "xpath:position" ],
+                [ "xpath=//button[contains(.,'button1')]", "xpath:innerText" ]
+            ],
+            "value": ""
+        },
+        {
+            "id": "8e079836-1537-4bde-a435-acddf8568bee",
+            "comment": "",
+            "command": "end",
+            "target": "",
+            "targets": [],
+            "value": ""
+        },
+        {
+            "id": "342b52b8-bd7c-4a6b-877c-52c074cc0ab5",
+            "comment": "",
+            "command": "if",
+            "target": "false",
+            "targets": [],
+            "value": ""
+        },
+        {
+            "id": "507d503b-b570-4f94-968e-2434959dc277",
+            "comment": "",
+            "command": "click",
+            "target": "id=bt2",
+            "targets": [
+                [ "id=bt2", "id" ],
+                [ "css=#bt2", "css:finder" ],
+                [ "xpath=//button[@id='bt2']", "xpath:attributes" ],
+                [ "xpath=//button[3]", "xpath:position" ],
+                [ "xpath=//button[contains(.,'button2')]", "xpath:innerText" ]
+            ],
+            "value": ""
+        },
+        {
+            "id": "290edcfc-45e3-4711-8236-5fc0234ccee0",
+            "comment": "",
+            "command": "else",
+            "target": "",
+            "targets": [],
+            "value": ""
+        },
+        {
+            "id": "69d28d4c-77e0-40e0-8ee7-e5c5e4b3ef17",
+            "comment": "",
+            "command": "click",
+            "target": "id=bt3",
+            "targets": [
+                [ "id=bt3", "id" ],
+                [ "css=#bt3", "css:finder" ],
+                [ "xpath=//button[@id='bt3']", "xpath:attributes" ],
+                [ "xpath=//button[4]", "xpath:position" ],
+                [ "xpath=//button[contains(.,'button3')]", "xpath:innerText" ]
+            ],
+            "value": ""
+        },
+        {
+            "id": "29b1329c-bf66-45e4-8451-2b469653db6b",
+            "comment": "",
+            "command": "end",
+            "target": "",
+            "targets": [],
+            "value": ""
+        }
+    ]
+  }],
+  "suites": [{
+    "id": "dd0dfb87-1981-4f58-afa0-2d4722d64ce0",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["f73e3fd4-99d6-4630-81a4-6e3df612a196"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

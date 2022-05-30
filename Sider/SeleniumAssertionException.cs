@@ -15,4 +15,17 @@ namespace Sider
         {
         }
     }
+
+    public class ControlFlowSyntaxException : Exception
+    {
+        public int Index { get; }
+
+        public ControlFlowSyntaxException() : base() { }
+
+        public ControlFlowSyntaxException(string message, int index) :
+        base(message)
+        {
+            this.Index = index;
+        }
+    }
 }

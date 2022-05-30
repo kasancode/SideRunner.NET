@@ -1,0 +1,62 @@
+{
+  "id": "2e2333bc-bbb1-4ad7-ad42-d95186c2a2bc",
+  "version": "2.0",
+  "name": "forEach",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "baa7e01b-4222-4d22-b761-0d06d4c03462",
+    "name": "forEach",
+    "commands": [{
+      "id": "c374e6b4-df0a-4e60-8c9a-ef24e0611ffd",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8bd108ad-8dfb-495b-8630-f33c375a74ec",
+      "comment": "",
+      "command": "store",
+      "target": "302",
+      "targets": [],
+      "value": "list"
+    }, {
+      "id": "6e7851a3-f53e-431b-a75e-ab71c5c1f0be",
+      "comment": "",
+      "command": "forEach",
+      "target": "list",
+      "targets": [],
+      "value": "i"
+    }, {
+      "id": "18910be1-0953-4123-bafe-1fb4c5d66a11",
+      "comment": "",
+      "command": "click",
+      "target": "id=bt${i}",
+      "targets": [
+        ["id=bt3", "id"],
+        ["css=#bt3", "css:finder"],
+        ["xpath=//button[@id='bt3']", "xpath:attributes"],
+        ["xpath=//button[4]", "xpath:position"],
+        ["xpath=//button[contains(.,'button3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b62828e0-3a69-406d-afc8-97cff46f34f9",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "80e0a3fb-9214-40e1-b90a-86890e35292e",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["baa7e01b-4222-4d22-b761-0d06d4c03462"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

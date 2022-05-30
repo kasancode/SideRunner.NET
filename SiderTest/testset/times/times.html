@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <button id="bt0" onclick="set()">button0</button>
+    </div>
+    <div>
+        <button id="validate" onclick="validate()">validate</button>
+    </div>
+    <div>
+        <span id="result"></span>
+    </div>
+    <script>
+        var result = 0;
+
+        function set() {
+            result++;
+        }
+
+        function validate() {
+            document.getElementById("result").innerHTML = result === 3 ? "OK" : "NA";
+            result = 0;
+        }
+    </script>
+</body>
+</html>

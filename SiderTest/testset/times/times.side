@@ -1,0 +1,49 @@
+{
+  "id": "c8060c65-c890-41cf-89aa-82ea526b37b6",
+  "version": "2.0",
+  "name": "times",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "0972799d-f3a1-4e7b-a570-3e89c3beb405",
+    "name": "times",
+    "commands": [{
+      "id": "da8b96f9-9cbd-4bde-abec-8c8dd7042f1e",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fa972ef7-f3f3-425e-a23c-617621379af5",
+      "comment": "",
+      "command": "times",
+      "target": "3",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "283ea76d-40dc-4d1d-970f-47ebcf6cf0a7",
+      "comment": "",
+      "command": "click",
+      "target": "id=bt0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b22d9344-e151-4693-ab66-1aa04288c0ae",
+      "comment": "",
+      "command": "end",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c10c6845-8c4b-4f40-8d1e-ab43ab8c533a",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0972799d-f3a1-4e7b-a570-3e89c3beb405"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <button id="bt0" onclick="set('0')">button0</button>
+        <button id="bt1" onclick="set('1')">button1</button>
+        <button id="bt2" onclick="set('2')">button2</button>
+        <button id="bt3" onclick="set('3')">button3</button>
+
+    </div>
+    <div>
+        <button id="validate" onclick="validate()">validate</button>
+    </div>
+    <div>
+        <span id="result"></span>
+    </div>
+    <script>
+        var result = "";
+
+        function set(num) {
+            result += num;
+        }
+
+        function validate() {
+            document.getElementById("result").innerHTML = result === "302" ? "OK" : "NA";
+            result = "";
+        }
+    </script>
+</body>
+</html>
