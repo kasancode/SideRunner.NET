@@ -16,10 +16,6 @@ jobs:
         uses: actions/setup-dotnet@v2
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-      - name: Install nbgv
-        run: |
-          dotnet tool install --tool-path . nbgv
-          nbgv install
       - name: Install dependencies
         run: dotnet restore
       - name: Build
