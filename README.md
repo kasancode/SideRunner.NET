@@ -1,4 +1,4 @@
-# SideRunner.NET [![Build Status](https://travis-ci.com/kasancode/SideRunner.NET.svg?branch=master)](https://travis-ci.com/kasancode/SideRunner.NET)
+# SideRunner.NET [![dotnet package](https://github.com/kasancode/SideRunner.NET/actions/workflows/test.yml/badge.svg)](https://github.com/kasancode/SideRunner.NET/actions/workflows/test.yml)
 
 .SIDE file (Selenium IDE file) Runner for .NET
 
