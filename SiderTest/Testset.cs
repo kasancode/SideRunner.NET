@@ -102,10 +102,13 @@ namespace SiderTest
 
             Assert.Equal("OK", result);
 
-            using var expectedImage = Image.Load(Path.Join($"{screenshotPath}", $"{testName}.expected.png"));
-            using var actualImage = Image.Load(Path.Join($"{screenshotPath}", $"{testName}.actual.png"));
-            var format = SixLabors.ImageSharp.Formats.Png.PngFormat.Instance;
-            Assert.Equal(expectedImage.ToBase64String(format), actualImage.ToBase64String(format));
+            if(Platform.CurrentPlatform.PlatformType == PlatformType.Windows)
+            {
+                using var expectedImage = Image.Load(Path.Join($"{screenshotPath}", $"{testName}.expected.png"));
+                using var actualImage = Image.Load(Path.Join($"{screenshotPath}", $"{testName}.actual.png"));
+                var format = SixLabors.ImageSharp.Formats.Png.PngFormat.Instance;
+                Assert.Equal(expectedImage.ToBase64String(format), actualImage.ToBase64String(format));
+            }
         }
 
         internal void CloseListener()
