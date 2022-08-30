@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Sider;
@@ -8,7 +9,8 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
-using Newtonsoft.Json;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Formats;
 
 namespace SiderTest
 {
@@ -68,8 +70,9 @@ namespace SiderTest
 
         internal void Run(string testName)
         {
-            var sidePath = Path.Join(this.basePath, testName + Path.DirectorySeparatorChar + testName + ".side");
-            var htmlPath = Path.Join(this.basePath, testName + Path.DirectorySeparatorChar + testName + ".html");
+            var sidePath = Path.Join(this.basePath, testName, testName + ".side");
+            var htmlPath = Path.Join(this.basePath, testName, testName + ".html");
+            var screenshotPath = Path.Join(this.basePath, this.screenshotsDirName);
 
             var options = new ChromeOptions();
             options.AddArgument("--headless");
@@ -90,15 +93,20 @@ namespace SiderTest
 
             var image = driver.GetScreenshot();
 
-            if (!Directory.Exists(screenshotsDirName))
+            if (!Directory.Exists(screenshotPath))
             {
-                Directory.CreateDirectory(screenshotsDirName);
+                Directory.CreateDirectory(screenshotPath);
             }
 
-            image.SaveAsFile($"{screenshotsDirName}\\{testName}.png");
+            image.SaveAsFile($"{screenshotPath}\\{testName}.png");
             this.CloseListener();
 
             Assert.Equal("OK", result);
+
+            using var expectedImage = Image.Load($"{screenshotPath}\\{testName}.expected.png");
+            using var actualImage = Image.Load($"{screenshotPath}\\{testName}.png");
+            var format = SixLabors.ImageSharp.Formats.Png.PngFormat.Instance;
+            Assert.Equal(expectedImage.ToBase64String(format), actualImage.ToBase64String(format));
         }
 
         internal void CloseListener()
