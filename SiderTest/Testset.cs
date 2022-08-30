@@ -3,14 +3,13 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Sider;
 using Sider.Models;
+using SixLabors.ImageSharp;
 using System;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Xunit;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Formats;
 
 namespace SiderTest
 {
@@ -98,13 +97,13 @@ namespace SiderTest
                 Directory.CreateDirectory(screenshotPath);
             }
 
-            image.SaveAsFile($"{screenshotPath}\\{testName}.png");
+            image.SaveAsFile(Path.Join($"{screenshotPath}", $"{testName}.actual.png"));
             this.CloseListener();
 
             Assert.Equal("OK", result);
 
-            using var expectedImage = Image.Load($"{screenshotPath}\\{testName}.expected.png");
-            using var actualImage = Image.Load($"{screenshotPath}\\{testName}.png");
+            using var expectedImage = Image.Load(Path.Join($"{screenshotPath}", $"{testName}.expected.png"));
+            using var actualImage = Image.Load(Path.Join($"{screenshotPath}", $"{testName}.actual.png"));
             var format = SixLabors.ImageSharp.Formats.Png.PngFormat.Instance;
             Assert.Equal(expectedImage.ToBase64String(format), actualImage.ToBase64String(format));
         }
